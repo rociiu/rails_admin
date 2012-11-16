@@ -41,6 +41,7 @@ module RailsAdmin
     private
     
     def back_or_index
+      return index_path if request.put?
       params[:return_to].presence && params[:return_to].include?(request.host) && (params[:return_to] != request.fullpath) ? params[:return_to] : index_path
     end
 
